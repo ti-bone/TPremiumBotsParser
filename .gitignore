@@ -40,3 +40,5 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+/bot_usernames.txt
+/config/appConfig.json
