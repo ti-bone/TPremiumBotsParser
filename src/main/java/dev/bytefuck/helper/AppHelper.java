@@ -44,16 +44,17 @@ public class AppHelper {
 
         var config = new ObjectMapper().readValue(configDir.resolve(APP_CONFIG_JSON).toFile(), AppConfigModel.class);
 
-        if (config.getBaseURL() == null)
-            throw new IllegalArgumentException("Config field base_url is invalid.");
-
-        if (config.getApiKey() == null)
-            throw new IllegalArgumentException("Config field api_key is invalid.");
-
-        if (config.getFragmentWallet() == null)
-            throw new IllegalArgumentException("Config field fragment_wallet is invalid.");
+        checkConfigFieldValidity(config.getBaseURL(), "base_url");
+        checkConfigFieldValidity(config.getApiKey(), "api_key");
+        checkConfigFieldValidity(config.getFragmentWallet(), "fragment_wallet");
 
         return config;
+    }
+
+    private static void checkConfigFieldValidity(String fieldValue, String fieldName) {
+        if (fieldValue == null || fieldValue.isEmpty()) {
+            throw new IllegalArgumentException("Config field " + fieldName + " is invalid.");
+        }
     }
 
     private static final String APP_CONFIG_JSON = "appConfig.json";

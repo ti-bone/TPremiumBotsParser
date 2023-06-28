@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'com.github.johnrengelman.shadow' version '7.1.0'
 }
 
 group = 'dev.bytefuck'
@@ -19,4 +20,16 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:4.11.0'
 
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'dev.bytefuck.TPremiumBotsParser'
+    }
+}
+
+shadowJar {
+    archiveBaseName.set('TPremiumBotsParser')
+    archiveVersion.set('1.0-SNAPSHOT')
+    archiveClassifier.set('')
 }
