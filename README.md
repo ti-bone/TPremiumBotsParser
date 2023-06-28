@@ -22,7 +22,7 @@ Build:
 
 Before starting the application, you'll need to do some initial configuration:
 
-1. Run the application once. This will generate an error, but don't worry - this is expected. The error indicates that you need to set api_key in configuration file, which was just created, `config/appConfig.json`, has been created.
+1. Run the application once. This will generate an error, but don't worry - this is expected. The error indicates that you need to set api_key in configuration file, which was just created, `config/appConfig.json`.
 
     - Unix:
 
